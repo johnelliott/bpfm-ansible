@@ -16,6 +16,7 @@
       - libbluetooth-dev
       - libasound-dev
       - libspeexdsp-dev
+      - libdbus-1-dev
     - stat: path={{dest}}/configure
       register: autogenRan
     - command: chdir={{dest}} ./autogen.sh
