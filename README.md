@@ -19,6 +19,7 @@ The page will use browser-native apis to deliver the audio stream.
 * we set up an ssh config called 'pi'
 * we made sure the laptop knew about the pi hostname
 * we installed the ansible script
+
 ## Deploying
 edit the `inventory` file with the ssh Host to deploy install to
 run `$ ansible-playbook make-nohands.yml -i inventory --ask-sudo-pass`
