@@ -1,0 +1,14 @@
+---
+# This playbook installs bpfm on a raspberry pi
+
+- name: Install BPFM
+  hosts: all
+  roles:
+  - nohands
+  # TODO install nvm and node from: https://github.com/leonidas/ansible-nvm
+  # example use from the above repo
+  #- role: nvm
+  #  nvm:
+  #    user: deploy
+  #    version: v0.4.0
+  #    node_version: '0.10'

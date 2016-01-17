@@ -1,0 +1,23 @@
+- file: path={{dest}} state=directory owner={{ansible_user_id}}
+  sudo: true
+- git: repo=https://github.com/heinervdm/nohands.git dest={{dest}}
+- apt: name={{item}} state=installed
+  sudo: true
+  with_items:
+  - automake
+  - autoconf
+  - libtool
+  - bluez
+  - blueman
+  - libbluetooth-dev
+  - libasound-dev
+  - libspeexdsp-dev
+  - libdbus-1-dev
+- stat: path={{dest}}/configure
+  register: autogenRan
+- command: chdir={{dest}} ./autogen.sh
+  when: not autogenRan.stat.exists
+- command: chdir={{dest}} ./configure
+- command: chdir={{dest}} make
+- command: chdir={{dest}} make install
+  sudo: true
